@@ -120,8 +120,10 @@ class DictoCrypto:
             with open(path, "r") as f:
                 return bytes(f.read(), 'utf-8')
 
-        my_key = open_as_bytestring(path=key_filepath)
-        my_file = open_as_bytestring(path=encrypted_filepath)
+        # open the key file
+        my_key: bytes = open_as_bytestring(path=key_filepath)
+
+        my_file: bytes = open_as_bytestring(path=encrypted_filepath)
 
         my_fernet = Fernet(my_key)
 
